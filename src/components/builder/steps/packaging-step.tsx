@@ -2,6 +2,7 @@
 
 import { CheckIcon, PackageIcon } from "lucide-react"
 
+import { CatalogImage } from "@/components/ui/catalog-image"
 import { cn } from "@/lib/utils"
 import { formatLKR } from "@/lib/constants"
 import { useBuilderCatalog } from "@/components/builder/builder-catalog-context"
@@ -33,7 +34,6 @@ export function PackagingStep() {
               key={pkg.id}
               type="button"
               onClick={() => {
-                // Guard: don't let a smaller box be chosen if it can't fit current items.
                 if (usedCapacity(items) > pkg.capacity) {
                   toast.error(
                     `This box only holds ${pkg.capacity} slots — remove some items first.`
@@ -50,14 +50,20 @@ export function PackagingStep() {
               )}
             >
               {isSelected && (
-                <span className="absolute right-4 top-4 flex size-6 items-center justify-center rounded-full bg-gold text-gold-foreground">
+                <span className="absolute right-4 top-4 z-10 flex size-6 items-center justify-center rounded-full bg-gold text-gold-foreground">
                   <CheckIcon className="size-4" />
                 </span>
               )}
 
-              <div className="flex aspect-[16/9] items-center justify-center rounded-xl bg-gratitud-wash">
-                <PackageIcon className="size-10 text-foreground/60" />
-              </div>
+              <CatalogImage
+                src={pkg.image_url}
+                alt={pkg.name}
+                aspectClass="aspect-[16/9] rounded-xl"
+                fallbackClassName="rounded-xl bg-gratitud-wash"
+                fallbackIcon={PackageIcon}
+                iconClassName="size-10 text-foreground/60"
+                sizes="(max-width: 640px) 100vw, 400px"
+              />
 
               <div className="space-y-1">
                 <div className="flex items-center justify-between gap-2">

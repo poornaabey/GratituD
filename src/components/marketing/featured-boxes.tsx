@@ -17,7 +17,6 @@ export function FeaturedBoxes({ boxes = [] }: FeaturedBoxesProps) {
       ? boxes
       : FEATURED_BOX_FALLBACK.map((box) => ({
           ...box,
-          image_url: null,
           is_active: true,
           created_at: new Date(0).toISOString(),
         }))

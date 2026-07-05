@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeftIcon, GiftIcon } from "lucide-react"
 
+import { CatalogImage } from "@/components/ui/catalog-image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/layout/container"
@@ -64,10 +65,16 @@ export default async function BoxDetailPage({ params }: BoxDetailPageProps) {
       </Button>
 
       <div className="grid items-start gap-10 lg:grid-cols-2">
-        <div
-          className={`flex aspect-square items-center justify-center rounded-3xl border border-border/60 ${featuredBoxAccentClass(box.slug)}`}
-        >
-          <GiftIcon className="size-20 text-foreground/60" />
+        <div className="overflow-hidden rounded-3xl border border-border/60">
+          <CatalogImage
+            src={box.image_url}
+            alt={box.name}
+            aspectClass="aspect-square lg:aspect-[4/5]"
+            fallbackClassName={featuredBoxAccentClass(box.slug)}
+            fallbackIcon={GiftIcon}
+            iconClassName="size-20 text-foreground/60"
+            sizes="(max-width: 1024px) 100vw, 560px"
+          />
         </div>
 
         <div className="space-y-6">

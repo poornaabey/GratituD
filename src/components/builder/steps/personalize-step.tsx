@@ -2,6 +2,7 @@
 
 import { CheckIcon } from "lucide-react"
 
+import { CatalogImage } from "@/components/ui/catalog-image"
 import { cn } from "@/lib/utils"
 import { formatLKR } from "@/lib/constants"
 import { Input } from "@/components/ui/input"
@@ -57,13 +58,21 @@ export function PersonalizeStep() {
                       setGreetingCard(isSelected ? null : card)
                     }
                     className={cn(
-                      "flex items-center justify-between rounded-xl border px-4 py-3 text-left text-sm transition-all",
+                      "flex items-center gap-3 rounded-xl border px-3 py-2.5 text-left text-sm transition-all",
                       isSelected
                         ? "border-gold ring-2 ring-gold/40 bg-accent/40"
                         : "border-border bg-card hover:border-gold/50"
                     )}
                   >
-                    <span className="font-medium text-foreground">
+                    <CatalogImage
+                      src={card.image_url}
+                      alt={card.name}
+                      aspectClass="aspect-[3/4] w-12 shrink-0 rounded-md"
+                      fallbackClassName="rounded-md bg-gratitud-wash"
+                      iconClassName="size-4 text-foreground/50"
+                      sizes="48px"
+                    />
+                    <span className="min-w-0 flex-1 font-medium text-foreground">
                       {card.name}
                     </span>
                     <span className="flex items-center gap-2">

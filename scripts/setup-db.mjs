@@ -69,6 +69,10 @@ async function main() {
       "migration (0001_init.sql)",
       path.join(root, "supabase/migrations/0001_init.sql")
     )
+    await runFile(
+      "migration (0002_media_storage.sql)",
+      path.join(root, "supabase/migrations/0002_media_storage.sql")
+    )
     await runFile("seed (seed.sql)", path.join(root, "supabase/seed.sql"))
     console.log("\nVerification:")
     await verify()

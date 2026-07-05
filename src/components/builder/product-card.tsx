@@ -1,8 +1,9 @@
 "use client"
 
-import { MinusIcon, PlusIcon, GiftIcon } from "lucide-react"
+import { MinusIcon, PlusIcon } from "lucide-react"
 import { toast } from "sonner"
 
+import { CatalogImage } from "@/components/ui/catalog-image"
 import { cn } from "@/lib/utils"
 import { formatLKR } from "@/lib/constants"
 import { Button } from "@/components/ui/button"
@@ -33,8 +34,14 @@ export function ProductCard({
         qty > 0 ? "border-gold/60 shadow-sm" : "border-border hover:shadow-md"
       )}
     >
-      <div className={cn("relative flex aspect-[4/3] items-center justify-center", accent)}>
-        <GiftIcon className="size-9 text-foreground/50" />
+      <div className="relative">
+        <CatalogImage
+          src={product.image_url}
+          alt={product.name}
+          aspectClass="aspect-[4/3]"
+          fallbackClassName={accent}
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 240px"
+        />
         {qty > 0 && (
           <Badge className="absolute right-2 top-2 bg-gold text-gold-foreground">
             {qty} in box

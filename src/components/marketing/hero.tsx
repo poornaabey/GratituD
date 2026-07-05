@@ -1,9 +1,11 @@
 import Link from "next/link"
 import { ArrowRightIcon, GiftIcon, StarIcon } from "lucide-react"
 
+import { CatalogImage } from "@/components/ui/catalog-image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/layout/container"
+import { HERO_IMAGE_PATH } from "@/lib/media"
 
 export function Hero() {
   return (
@@ -56,21 +58,18 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Visual placeholder — swap for hero product photography */}
         <div className="relative">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border/60 bg-card shadow-xl">
-            <div className="absolute inset-0 bg-gratitud-wash opacity-80" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center">
-              <div className="flex size-24 items-center justify-center rounded-2xl bg-background/70 shadow-lg backdrop-blur">
-                <GiftIcon className="size-12 text-gold" />
-              </div>
-              <p className="font-heading text-2xl font-medium text-foreground">
-                Your box, your way
-              </p>
-              <p className="max-w-[16rem] text-sm text-muted-foreground">
-                Hero photography of a signature GratituD box goes here.
-              </p>
-            </div>
+          <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-card shadow-xl">
+            <CatalogImage
+              src={HERO_IMAGE_PATH}
+              alt="Curated GratituD gift box with ribbon"
+              aspectClass="aspect-[4/5]"
+              fallbackClassName="bg-gratitud-wash"
+              fallbackIcon={GiftIcon}
+              iconClassName="size-12 text-gold"
+              priority
+              sizes="(max-width: 768px) 100vw, 560px"
+            />
           </div>
           <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-border/60 bg-card px-5 py-4 shadow-lg sm:block">
             <p className="font-heading text-xl font-semibold text-foreground">

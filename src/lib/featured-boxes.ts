@@ -15,7 +15,7 @@ export function featuredBoxAccentClass(slug: string): string {
 /** Fallback when Supabase has no rows (local dev without seed). */
 export const FEATURED_BOX_FALLBACK: Pick<
   FeaturedBox,
-  "id" | "name" | "slug" | "description" | "base_price_lkr"
+  "id" | "name" | "slug" | "description" | "base_price_lkr" | "image_url"
 >[] = [
   {
     id: "fallback-comfort",
@@ -23,6 +23,7 @@ export const FEATURED_BOX_FALLBACK: Pick<
     slug: "comfort-box",
     description: "Candle, tea sampler & chocolates for a cosy pick-me-up.",
     base_price_lkr: 650000,
+    image_url: "featured/comfort-box.jpg",
   },
   {
     id: "fallback-pamper",
@@ -30,6 +31,7 @@ export const FEATURED_BOX_FALLBACK: Pick<
     slug: "pamper-box",
     description: "Rose mist, body butter & a soy candle for self-care.",
     base_price_lkr: 720000,
+    image_url: "featured/pamper-box.jpg",
   },
   {
     id: "fallback-celebration",
@@ -37,6 +39,7 @@ export const FEATURED_BOX_FALLBACK: Pick<
     slug: "celebration-box",
     description: "Preserved rose, truffles & a keepsake mug.",
     base_price_lkr: 890000,
+    image_url: "featured/celebration-box.jpg",
   },
   {
     id: "fallback-him",
@@ -44,5 +47,6 @@ export const FEATURED_BOX_FALLBACK: Pick<
     slug: "him-box",
     description: "Bluetooth speaker, dark chocolate & a travel tumbler.",
     base_price_lkr: 1150000,
+    image_url: "featured/him-box.jpg",
   },
 ]
