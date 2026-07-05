@@ -25,6 +25,13 @@ export function CartView() {
           <GiftIcon className="size-4" />
           Build a Gift Box
         </Button>
+        <Button
+          variant="outline"
+          className="mt-3"
+          render={<Link href="/boxes" />}
+        >
+          Shop ready-made boxes
+        </Button>
       </Container>
     )
   }

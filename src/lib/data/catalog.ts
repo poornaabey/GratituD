@@ -81,6 +81,21 @@ export async function getFeaturedBoxes(): Promise<FeaturedBox[]> {
   return data ?? []
 }
 
+export async function getFeaturedBoxBySlug(
+  slug: string
+): Promise<FeaturedBox | null> {
+  const supabase = await createClient()
+  const { data, error } = await supabase
+    .from("featured_boxes")
+    .select("*")
+    .eq("slug", slug)
+    .eq("is_active", true)
+    .maybeSingle()
+
+  if (error) throw error
+  return data
+}
+
 export async function getBuilderCatalog() {
   const [categories, products, packagingOptions, greetingCards] =
     await Promise.all([

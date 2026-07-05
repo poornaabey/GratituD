@@ -1,45 +1,27 @@
 import Link from "next/link"
-import { ArrowRightIcon, GiftIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 
+import { FeaturedBoxCard } from "@/components/shop/featured-box-card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Container } from "@/components/layout/container"
-import { formatLKR } from "@/lib/constants"
+import { FEATURED_BOX_FALLBACK } from "@/lib/featured-boxes"
+import type { FeaturedBox } from "@/types/db"
 
-// Static preview data for Phase 3. Wired to Supabase `featured_boxes` in Phase 5.
-const FEATURED = [
-  {
-    slug: "comfort-box",
-    name: "The Comfort Box",
-    description: "Candle, tea sampler & chocolates for a cosy pick-me-up.",
-    price: 650000,
-    accent: "bg-blush/30",
-  },
-  {
-    slug: "pamper-box",
-    name: "The Pamper Box",
-    description: "Rose mist, body butter & a soy candle for self-care.",
-    price: 720000,
-    accent: "bg-sage/25",
-  },
-  {
-    slug: "celebration-box",
-    name: "The Celebration Box",
-    description: "Preserved rose, truffles & a keepsake mug.",
-    price: 890000,
-    accent: "bg-accent",
-  },
-  {
-    slug: "him-box",
-    name: "The Him Box",
-    description: "Bluetooth speaker, dark chocolate & a travel tumbler.",
-    price: 1150000,
-    accent: "bg-secondary",
-  },
-] as const
+interface FeaturedBoxesProps {
+  boxes?: FeaturedBox[]
+}
 
-export function FeaturedBoxes() {
+export function FeaturedBoxes({ boxes = [] }: FeaturedBoxesProps) {
+  const display =
+    boxes.length > 0
+      ? boxes
+      : FEATURED_BOX_FALLBACK.map((box) => ({
+          ...box,
+          image_url: null,
+          is_active: true,
+          created_at: new Date(0).toISOString(),
+        }))
+
   return (
     <section id="featured" className="scroll-mt-20 bg-secondary/40 py-20 md:py-24">
       <Container>
@@ -62,37 +44,8 @@ export function FeaturedBoxes() {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURED.map((box) => (
-            <Card
-              key={box.slug}
-              className="overflow-hidden pt-0 transition-shadow hover:shadow-lg"
-            >
-              <div
-                className={`flex aspect-[4/3] items-center justify-center ${box.accent}`}
-              >
-                <GiftIcon className="size-10 text-foreground/70" />
-              </div>
-              <CardContent className="space-y-2">
-                <div className="flex items-center justify-between gap-2">
-                  <h3 className="font-heading text-lg font-medium text-foreground">
-                    {box.name}
-                  </h3>
-                  <Badge variant="secondary">{formatLKR(box.price)}</Badge>
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {box.description}
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button
-                  variant="secondary"
-                  className="w-full"
-                  render={<Link href={`/boxes/${box.slug}`} />}
-                >
-                  View box
-                </Button>
-              </CardFooter>
-            </Card>
+          {display.slice(0, 4).map((box) => (
+            <FeaturedBoxCard key={box.id} box={box} />
           ))}
         </div>
       </Container>
