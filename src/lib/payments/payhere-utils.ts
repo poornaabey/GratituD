@@ -148,6 +148,15 @@ export function verifyNotificationHash(params: {
   return local === params.md5sig.toUpperCase()
 }
 
+/** Normalize Sri Lankan phone numbers for PayHere (digits only, local format). */
+export function normalizePayHerePhone(phone: string): string {
+  const digits = phone.replace(/\D/g, "")
+  if (digits.startsWith("94") && digits.length >= 11) {
+    return `0${digits.slice(2)}`
+  }
+  return digits
+}
+
 export function splitCustomerName(fullName: string): {
   firstName: string
   lastName: string

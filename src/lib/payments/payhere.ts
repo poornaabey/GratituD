@@ -4,6 +4,7 @@ import {
   generateCheckoutHash,
   getPayHereConfig,
   isPayHereConfigured,
+  normalizePayHerePhone,
   splitCustomerName,
   verifyNotificationHash,
 } from "./payhere-utils"
@@ -107,7 +108,7 @@ export function buildPayHereCheckoutFields(input: {
     first_name: firstName,
     last_name: lastName,
     email: input.customerEmail,
-    phone: input.customerPhone,
+    phone: normalizePayHerePhone(input.customerPhone),
     address: input.address,
     city: input.city,
     country: "Sri Lanka",

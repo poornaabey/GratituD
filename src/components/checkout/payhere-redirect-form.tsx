@@ -25,7 +25,7 @@ export function PayHereRedirectForm({
       <p className="text-sm text-muted-foreground">
         Secure payment in LKR. Please wait.
       </p>
-      {setupDomain && process.env.NODE_ENV === "development" && (
+      {setupDomain && (
         <div className="mt-4 max-w-md rounded-lg border border-border bg-muted/40 p-4 text-left text-xs text-muted-foreground">
           <p className="font-medium text-foreground">PayHere sandbox checklist</p>
           <ol className="mt-2 list-decimal space-y-1 pl-4">
