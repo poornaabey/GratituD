@@ -1,0 +1,204 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Typography */
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-script: var(--font-script);
+  --font-mono: var(--font-geist-mono);
+
+  /* Brand accent tokens */
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-blush: var(--blush);
+  --color-blush-foreground: var(--blush-foreground);
+  --color-sage: var(--sage);
+  --color-sage-foreground: var(--sage-foreground);
+  --color-charcoal: var(--charcoal);
+  --color-cream: var(--cream);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ==========================================================================
+   GratituD.lk brand palette
+   Warm, sophisticated: deep charcoal, soft cream, muted gold, blush & sage.
+   ========================================================================== */
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.976 0.008 85);       /* soft cream */
+  --foreground: oklch(0.255 0.014 55);       /* deep warm charcoal */
+
+  --card: oklch(0.992 0.004 85);
+  --card-foreground: oklch(0.255 0.014 55);
+  --popover: oklch(0.992 0.004 85);
+  --popover-foreground: oklch(0.255 0.014 55);
+
+  --primary: oklch(0.28 0.015 55);           /* charcoal */
+  --primary-foreground: oklch(0.972 0.01 85);/* cream */
+
+  --secondary: oklch(0.93 0.018 80);         /* warm sand */
+  --secondary-foreground: oklch(0.3 0.015 55);
+
+  --muted: oklch(0.945 0.012 85);
+  --muted-foreground: oklch(0.52 0.015 65);
+
+  --accent: oklch(0.9 0.05 85);              /* soft gold wash */
+  --accent-foreground: oklch(0.3 0.02 60);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: oklch(0.9 0.012 80);
+  --input: oklch(0.9 0.012 80);
+  --ring: oklch(0.74 0.09 82);               /* gold focus ring */
+
+  /* Brand accents */
+  --gold: oklch(0.74 0.095 82);
+  --gold-foreground: oklch(0.28 0.02 60);
+  --blush: oklch(0.86 0.045 20);
+  --blush-foreground: oklch(0.35 0.03 25);
+  --sage: oklch(0.74 0.045 150);
+  --sage-foreground: oklch(0.3 0.02 150);
+  --charcoal: oklch(0.255 0.014 55);
+  --cream: oklch(0.976 0.008 85);
+
+  --chart-1: oklch(0.74 0.095 82);
+  --chart-2: oklch(0.74 0.045 150);
+  --chart-3: oklch(0.86 0.045 20);
+  --chart-4: oklch(0.52 0.015 65);
+  --chart-5: oklch(0.28 0.015 55);
+
+  --sidebar: oklch(0.972 0.01 85);
+  --sidebar-foreground: oklch(0.255 0.014 55);
+  --sidebar-primary: oklch(0.28 0.015 55);
+  --sidebar-primary-foreground: oklch(0.972 0.01 85);
+  --sidebar-accent: oklch(0.9 0.05 85);
+  --sidebar-accent-foreground: oklch(0.3 0.02 60);
+  --sidebar-border: oklch(0.9 0.012 80);
+  --sidebar-ring: oklch(0.74 0.09 82);
+}
+
+.dark {
+  --background: oklch(0.19 0.012 60);        /* near-black charcoal */
+  --foreground: oklch(0.95 0.008 85);
+
+  --card: oklch(0.235 0.014 60);
+  --card-foreground: oklch(0.95 0.008 85);
+  --popover: oklch(0.235 0.014 60);
+  --popover-foreground: oklch(0.95 0.008 85);
+
+  --primary: oklch(0.8 0.1 82);              /* gold pops on dark */
+  --primary-foreground: oklch(0.2 0.02 60);
+
+  --secondary: oklch(0.285 0.014 60);
+  --secondary-foreground: oklch(0.95 0.008 85);
+
+  --muted: oklch(0.285 0.014 60);
+  --muted-foreground: oklch(0.72 0.012 80);
+
+  --accent: oklch(0.33 0.03 70);
+  --accent-foreground: oklch(0.95 0.008 85);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.8 0.1 82);
+
+  --gold: oklch(0.8 0.1 82);
+  --gold-foreground: oklch(0.2 0.02 60);
+  --blush: oklch(0.82 0.05 20);
+  --blush-foreground: oklch(0.22 0.02 25);
+  --sage: oklch(0.72 0.05 150);
+  --sage-foreground: oklch(0.2 0.02 150);
+  --charcoal: oklch(0.19 0.012 60);
+  --cream: oklch(0.95 0.008 85);
+
+  --chart-1: oklch(0.8 0.1 82);
+  --chart-2: oklch(0.72 0.05 150);
+  --chart-3: oklch(0.82 0.05 20);
+  --chart-4: oklch(0.72 0.012 80);
+  --chart-5: oklch(0.95 0.008 85);
+
+  --sidebar: oklch(0.235 0.014 60);
+  --sidebar-foreground: oklch(0.95 0.008 85);
+  --sidebar-primary: oklch(0.8 0.1 82);
+  --sidebar-primary-foreground: oklch(0.2 0.02 60);
+  --sidebar-accent: oklch(0.33 0.03 70);
+  --sidebar-accent-foreground: oklch(0.95 0.008 85);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.8 0.1 82);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  /* Handwritten-style note preview (used in the gift builder) */
+  .font-script {
+    font-family: var(--font-script), cursive;
+  }
+  /* Subtle premium gradient wash for hero / section backdrops */
+  .bg-gratitud-wash {
+    background-image:
+      radial-gradient(60% 55% at 15% 10%, color-mix(in oklch, var(--gold) 22%, transparent), transparent 70%),
+      radial-gradient(55% 50% at 90% 25%, color-mix(in oklch, var(--blush) 22%, transparent), transparent 70%),
+      radial-gradient(60% 60% at 60% 100%, color-mix(in oklch, var(--sage) 16%, transparent), transparent 70%);
+  }
+}
