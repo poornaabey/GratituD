@@ -71,7 +71,7 @@ export default async function BoxDetailPage({ params }: BoxDetailPageProps) {
             alt={box.name}
             aspectClass="aspect-square lg:aspect-[4/5]"
             fallbackClassName={featuredBoxAccentClass(box.slug)}
-            fallbackIcon={GiftIcon}
+            fallbackIcon="gift"
             iconClassName="size-20 text-foreground/60"
             sizes="(max-width: 1024px) 100vw, 560px"
           />

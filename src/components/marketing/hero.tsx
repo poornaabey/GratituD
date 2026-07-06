@@ -65,7 +65,7 @@ export function Hero() {
               alt="Curated GratituD gift box with ribbon"
               aspectClass="aspect-[4/5]"
               fallbackClassName="bg-gratitud-wash"
-              fallbackIcon={GiftIcon}
+              fallbackIcon="gift"
               iconClassName="size-12 text-gold"
               priority
               sizes="(max-width: 768px) 100vw, 560px"

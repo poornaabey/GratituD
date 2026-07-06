@@ -60,7 +60,7 @@ export function PackagingStep() {
                 alt={pkg.name}
                 aspectClass="aspect-[16/9] rounded-xl"
                 fallbackClassName="rounded-xl bg-gratitud-wash"
-                fallbackIcon={PackageIcon}
+                fallbackIcon="package"
                 iconClassName="size-10 text-foreground/60"
                 sizes="(max-width: 640px) 100vw, 400px"
               />

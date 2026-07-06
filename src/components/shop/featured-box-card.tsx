@@ -1,6 +1,4 @@
 import Link from "next/link"
-import { GiftIcon } from "lucide-react"
-
 import { CatalogImage } from "@/components/ui/catalog-image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -22,7 +20,7 @@ export function FeaturedBoxCard({ box }: { box: FeaturedBoxCardProps }) {
         alt={box.name}
         aspectClass="aspect-[4/3]"
         fallbackClassName={featuredBoxAccentClass(box.slug)}
-        fallbackIcon={GiftIcon}
+        fallbackIcon="gift"
         iconClassName="size-10 text-foreground/70"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
       />
